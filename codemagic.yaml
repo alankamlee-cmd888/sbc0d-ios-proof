@@ -1,6 +1,6 @@
 workflows:
-  sbc1e-ios-shell-proof:
-    name: SBC-1E iOS Shell Proof
+  sbc1-consolidated-apple-proof:
+    name: SBC-1 Consolidated Apple Proof
     instance_type: mac_mini_m2
     max_build_duration: 45
     triggering:
@@ -23,11 +23,11 @@ workflows:
         - $HOME/.cargo/git
         - $HOME/.npm
     scripts:
-      - name: Run SBC-1E Apple evidence gate
+      - name: Run consolidated SBC-1 Apple evidence gate
         script: |
           chmod +x "$CM_BUILD_DIR/SBC1E_CODEMAGIC_IOS_PROOF_V1/ci/run_sbc1e_codemagic.sh"
           "$CM_BUILD_DIR/SBC1E_CODEMAGIC_IOS_PROOF_V1/ci/run_sbc1e_codemagic.sh"
     artifacts:
-      - artifacts/sbc1e/**
-      - .sbc1e-work/shark-books-community/workspace/shark-tauri-spike/gen/apple/**/*.app
+      - artifacts/sbc1/**
+      - .sbc1-work/shark-books-community/workspace/shark-tauri-spike/gen/apple/**/*.app
       - /tmp/xcodebuild_logs/*.log
